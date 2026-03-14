@@ -1,15 +1,15 @@
 import { describe, it, expect } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import App from '../App'
 
 describe('App Component', () => {
   it('renders without crashing', () => {
-    render(<App />)
-    expect(document.body).toBeTruthy()
+    const { container } = render(<App />)
+    expect(container).toBeTruthy()
   })
 
   it('renders count button', () => {
-    render(<App />)
-    expect(screen.getByText(/count/i)).toBeTruthy()
+    const { getByText } = render(<App />)
+    expect(getByText(/count/i)).toBeTruthy()
   })
 })
